@@ -7,8 +7,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val API_KEY = ""
-const val BASE_URL = ""
+const val API_KEY = "38278c755amshe5f41e2a7230c56p1fecd1jsn3eea0decfe12"
+const val HOST_URL = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 
 object TheMovieDBClient {
 
@@ -16,7 +16,7 @@ object TheMovieDBClient {
         val requestInterceptor = Interceptor {
             chain ->
 
-            val url = chain.request().url().newBuilder().addQueryParameter("api_key", API_KEY).build()
+            val url = chain.request().url().newBuilder().addQueryParameter("x-rapidapi-key", API_KEY).addQueryParameter("x-rapidapi-host", HOST_URL).build()
 
             val request = chain.request().newBuilder().url(url).build()
 
@@ -25,7 +25,7 @@ object TheMovieDBClient {
 
         val okHttpClient = OkHttpClient.Builder().addInterceptor(requestInterceptor).connectTimeout(60, TimeUnit.SECONDS).build()
 
-        return Retrofit.Builder().client(okHttpClient).baseUrl(BASE_URL).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(
+        return Retrofit.Builder().client(okHttpClient).baseUrl(HOST_URL).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(
             GsonConverterFactory.create()).build().create(APIInterface::class.java)
     }
 

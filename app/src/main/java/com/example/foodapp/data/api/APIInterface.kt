@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface APIInterface {
 
-    @GET("")
-    fun getSomething(@Path("") id : Int) : Single<Void> //Replace Void with return type
+    @GET("recipes/search")
+    fun getRecipes(query : String) : Single<Void> //Replace Void with return type
 
 }
