@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 const val API_KEY = "38278c755amshe5f41e2a7230c56p1fecd1jsn3eea0decfe12"
-const val HOST_URL = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+const val HOST_URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 
 object APIClient {
 

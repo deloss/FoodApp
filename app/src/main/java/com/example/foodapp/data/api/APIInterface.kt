@@ -9,6 +9,6 @@ import retrofit2.http.Query
 interface APIInterface {
 
     @GET("recipes/search")
-    fun getRecipes(query : String) : Single<List<Recipe>>
+    fun getRecipes(@Query("query") query : String) : Single<List<Recipe>>
 
 }
